@@ -22,6 +22,34 @@ section.active {
     display: flex;
 }
 
-img {
-    width: 100%;
+.changeBtn {
+    border: none;
+    background: black;
+
+    .loading-screen{
+        background: black;
+    }
+
+    .text {
+        width: 60%;
+    }
+
+    .logo {
+        animation-name: spin;
+        animation-duration: 10000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear; 
+        width: 50%;
+        margin-bottom: 2rem;
+    }
+
+    @keyframes spin {
+        from {
+            transform:rotate(0deg);
+        }
+        to {
+            transform:rotate(360deg);
+        }
+    }
 }
+
