@@ -9,8 +9,55 @@
 </head>
 <body>
     <div id="app">
-        <h1>Hello World!</h1>
+        <div id="time">00:00:00</div>
+        <main>
+            <section id="loading" class="loading-screen active">
+                <img class="logo" src="../../poster.png" alt="poster">
+            </section>
+    
+            <section id="setuptimer" class="timer-setup-screen">
+                <section id="time-step" class="timeStepWrapper">
+                    <button id="stepLeft" class="stepLeft"></button>
+                    <aside class="minuteWrapper">
+                        <h1 id="displayTime" class="display-time">10</h1>
+                        <p>minutes</p>
+                    </aside>
+                    <button id="stepRight" class="stepRight"></button>
+                </section>
+            </section>
+    
+            <section id="DigitalTimer" class="digital-timer-screen">
+                <section class="time-wrapper">
+                    <h1 id="digitalTimerTime">7:32</h1>
+                </section>
+                <button id="abort" class="abort-button">Abort timer</button>
+            </section>
+    
+            <section id="AnalogTimer" class="analog-timer-screen">
+                <section class="time-wrapper">
+                    <div id="secondMarker" class="second-mark"></div>
+                    <div id="minuteMarker" class="minute-mark"></div>
+                </section>
+                <button id="abort" class="abort-button">Abort timer</button>
+            </section>
+    
+            <section id="VisualTimer" class="visual-timer-screen">
+                <div id="cisualTime" class="visual-time"></div>
+                <button id="abort" class="abort-button">Abort timer</button>
+            </section>
+    
+            <section id="TimesUp" class="times-up-screen">
+                <h1>Times up!</h1>
+                <button id="SetUpNewTimer" class="new-timer-button">Set new timer</button>
+            </section>
+    
+            <section id="Pause" class="pause-screen">
+                <h1>Pause & breathe</h1>
+                <p id="CurrentTime">3:37</p>
+                <button id="StopPauseButton" class="stop-pause-button">No pause, go now!</button>
+            </section>
+        </main>
     </div>
-    <script src="index.ts"></script>
+    <script type="module" src="index.ts"></script>
 </body>
 </html>
