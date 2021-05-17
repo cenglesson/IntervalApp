@@ -48,41 +48,49 @@ section.active {
 }
 
 .changeBtn .text {
-  width: 60%;
+  width: 50%;
 }
 
 .changeBtn .logo {
-  -webkit-animation-name: spin;
-          animation-name: spin;
-  -webkit-animation-duration: 10000ms;
-          animation-duration: 10000ms;
+  -webkit-animation-name: bounce-1;
+          animation-name: bounce-1;
+  -webkit-animation-duration: 3000ms;
+          animation-duration: 3000ms;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
-  width: 50%;
+  height: 5rem;
   margin-bottom: 2rem;
 }
 
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+@-webkit-keyframes bounce-1 {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+  50% {
+    -webkit-transform: translateY(-40px);
+            transform: translateY(-40px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
-@keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+@keyframes bounce-1 {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+  50% {
+    -webkit-transform: translateY(-40px);
+            transform: translateY(-40px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 /*# sourceMappingURL=styles.css.map */

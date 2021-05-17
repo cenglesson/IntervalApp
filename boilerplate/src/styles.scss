@@ -31,25 +31,23 @@ section.active {
     }
 
     .text {
-        width: 60%;
+        width: 50%;
     }
 
     .logo {
-        animation-name: spin;
-        animation-duration: 10000ms;
+        animation-name: bounce-1;
+        animation-duration: 3000ms;
         animation-iteration-count: infinite;
         animation-timing-function: linear; 
-        width: 50%;
+        height: 5rem;
         margin-bottom: 2rem;
+        
     }
 
-    @keyframes spin {
-        from {
-            transform:rotate(0deg);
-        }
-        to {
-            transform:rotate(360deg);
-        }
+    @keyframes bounce-1 {
+        0%   { transform: translateY(0); }
+        50%  { transform: translateY(-40px); }
+        100% { transform: translateY(0); }
     }
 }
 
