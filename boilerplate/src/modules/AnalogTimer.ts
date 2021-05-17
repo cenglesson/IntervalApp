@@ -1,3 +1,3 @@
-export const AnalogTimer = (time: number) => {
+export const AnalogTimer = (time: number, type: string) => {
     
 }

@@ -1,10 +1,35 @@
+@import "mixins.scss";
+
 body, html {
     font-family: Helvetica;
+    text-align: center;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+h1 {
+    font-size: 4.6rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+p, span {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+.app {
+    width: 375px;
+    height: 700px;
+}
+
+main {
+    width: 375px;
+    height: 700px;
 }
 
 section {
@@ -16,6 +41,8 @@ section {
     align-items: center;
     display: none;
     box-shadow: 0 0 10px 3px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 section.active {
@@ -24,4 +51,81 @@ section.active {
 
 img {
     width: 100%;
+}
+
+.timer-setup-screen {
+    width: 100%;
+    .time-step-wrapper {
+        width: 100%;
+        @include flex-center;
+        justify-content: space-around;
+        button {
+            width: 30px;
+            height: 60px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            background-image: url(../images/arrow.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            cursor: pointer;
+        }
+        .step-right {
+            transform: rotateY(180deg);
+        }
+    }
+    .timer-type-wrapper {
+        width: 100%;
+        flex-direction: column;
+        @include flex-center;
+        margin: 3rem 0 1rem 0;
+    }
+    .checkbox {
+        @include flex-start;
+        width: 300px;
+        margin: 0.5rem 0;
+        .box {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+        .box.checked {
+            background-color: #000;
+        }
+        p {
+            margin-left: 2rem;
+            text-align: left;
+        }
+    }
+    .start-timer-button {
+        width: 70%;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        padding: 0.5rem;
+        background-color: transparent;
+        outline: none;
+        border: 3px solid #000;
+        border-radius: 0.3rem;
+        cursor: pointer;
+    }
+    p {
+        align-self: flex-start;
+        margin-left: 2.5rem;
+    }
+    .timers-wrapper {
+        margin: 1rem 0;
+    }
+}
+
+.visual-time {
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    transition: height 0.2s ease;
+    animation-duration: 2000s ease;
 }

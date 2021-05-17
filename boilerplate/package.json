@@ -17,6 +17,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "easytimer.js": "^4.3.4"
   }
 }
