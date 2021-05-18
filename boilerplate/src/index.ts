@@ -97,18 +97,11 @@ const startTimer = () => {
 startTimerButton.addEventListener('click', startTimer);
 
 
-
-
-
-
-
-
-
 // Loadingpage.
-const loadingpageElem: HTMLElement = document.querySelector('#loading');
-const startpageElem: HTMLElement = document.querySelector('#setuptimer');
-const changeBtn: HTMLElement = document.querySelector('.changeBtn');
-const pageElem: HTMLElement = document.querySelector('#time-step');
+const loadingpageElem = document.querySelector('#loading') as HTMLElement;
+const startpageElem = document.querySelector('#setuptimer') as HTMLElement;
+const changeBtn = document.querySelector('.changeBtn') as HTMLElement;
+const pageElem = document.querySelector('#time-step') as HTMLElement;
 
 changeBtn.addEventListener('click', () => {
     loadingpageElem.classList.remove('active');
