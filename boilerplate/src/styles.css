@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
 body, html {
-  font-family: Helvetica;
+  font-family: 'PT Sans', sans-serif;
+  text-align: center;
   width: 100%;
   height: 100vh;
   display: -webkit-box;
@@ -13,6 +15,28 @@ body, html {
           align-items: center;
 }
 
+h1 {
+  font-size: 4.6rem;
+  letter-spacing: 0.2rem;
+  margin: 0;
+}
+
+p, span {
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  margin: 0 1rem;
+}
+
+.app {
+  width: 375px;
+  height: 700px;
+}
+
+main {
+  width: 375px;
+  height: 700px;
+}
+
 section {
   width: 375px;
   height: 700px;
@@ -21,6 +45,9 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -30,6 +57,8 @@ section {
   display: none;
   -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 section.active {
@@ -38,9 +67,143 @@ section.active {
   display: flex;
 }
 
+.changeBtn.active {
+  display: block;
+}
+
+img {
+  width: 100%;
+}
+
+button:not(.changeBtn, .step-right, .step-left) {
+  width: 240px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  background-color: transparent;
+  outline: none;
+  border: 3px solid #2b2b2b;
+  color: #2b2b2b;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  letter-spacing: 0.2rem;
+  position: absolute;
+  bottom: 4.2rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.timer-setup-screen {
+  width: 100%;
+}
+
+.timer-setup-screen .time-step-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.timer-setup-screen .time-step-wrapper button {
+  width: 30px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  background-image: url(../images/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.timer-setup-screen .time-step-wrapper .step-right {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.timer-setup-screen .timer-type-wrapper {
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3rem 0 1rem 0;
+}
+
+.timer-setup-screen .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
+  margin: 0.5rem 0;
+}
+
+.timer-setup-screen .checkbox .box {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+.timer-setup-screen .checkbox .box.checked {
+  background-color: #000;
+  position: relative;
+}
+
+.timer-setup-screen .checkbox .box.checked::before {
+  content: 'x';
+  color: #ffffff;
+  position: absolute;
+  top: -0.3rem;
+  left: 0.22rem;
+  font-size: 1.5rem;
+}
+
+.timer-setup-screen .timers-wrapper {
+  margin: 1rem 0;
+}
+
+.visual-time {
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  -webkit-transition: height 0.2s ease;
+  transition: height 0.2s ease;
+}
+
 .changeBtn {
   border: none;
-  background: black;
+  background: transparent;
+  display: none;
+  cursor: pointer;
 }
 
 .changeBtn .loading-screen {
@@ -61,6 +224,7 @@ section.active {
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
   height: 5rem;
+  max-width: 5.5rem;
   margin-bottom: 2rem;
 }
 
@@ -92,5 +256,22 @@ section.active {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
+}
+
+.pause-screen {
+  background-color: #2b2b2b;
+  color: #ffffff;
+}
+
+.stop-pause-button {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.time-wrapper {
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 1rem;
+  line-height: 140%;
 }
 /*# sourceMappingURL=styles.css.map */

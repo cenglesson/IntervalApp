@@ -1,8 +1,10 @@
 @import "mixins.scss";
 @import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
 
 body, html {
-    font-family: Helvetica;
+    font-family: 'PT Sans', sans-serif;
     text-align: center;
     width: 100%;
     height: 100vh;
@@ -157,4 +159,11 @@ button:not(.changeBtn, .step-right, .step-left) {
 .stop-pause-button {
     color: $light !important;
     border-color: $light !important;
+}
+
+.time-wrapper {
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 1rem;
+    line-height: 140%;      
 }
