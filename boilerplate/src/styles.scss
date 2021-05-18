@@ -48,6 +48,9 @@ section {
 section.active {
     display: flex;
 }
+.changeBtn.active {
+    display: block;
+}
 
 
 img {
@@ -107,7 +110,8 @@ button {
 
 .changeBtn {
     border: none;
-    background: black;
+    background: transparent;
+    display: none;
 
     .loading-screen{
         background: black;
