@@ -57,7 +57,7 @@ img {
     width: 100%;
 }
 
-button {
+button:not(.changeBtn, .step-right, .step-left) {
     @include button-default;
 }
 
@@ -97,6 +97,15 @@ button {
         }
         .box.checked {
             background-color: #000;
+            position: relative;
+        }
+        .box.checked::before {
+            content: 'x';
+            color: $light;
+            position: absolute;
+            top: -0.3rem;
+            left: 0.22rem;
+            font-size: 1.5rem;
         }
     }
     .timers-wrapper {
@@ -112,6 +121,7 @@ button {
     border: none;
     background: transparent;
     display: none;
+    cursor: pointer;
 
     .loading-screen{
         background: black;
@@ -137,4 +147,14 @@ button {
         50%  { transform: translateY(-40px); }
         100% { transform: translateY(0); }
     }
+}
+
+.pause-screen {
+    background-color: $dark;
+    color: $light;
+}
+
+.stop-pause-button {
+    color: $light !important;
+    border-color: $light !important;
 }
