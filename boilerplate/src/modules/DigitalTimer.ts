@@ -1,3 +1,3 @@
-export const DigitalTimer = (time: number) => {
+export const DigitalTimer = (time: number, type: string) => {
     
 }
