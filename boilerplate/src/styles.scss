@@ -103,3 +103,32 @@ button {
 .visual-time {
     @include visual-time;
 }
+
+
+.time-wrapper {
+    @include time-wrapper;
+    .analog-face {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-3px);
+    }
+    .minute-mark {
+        width: 50%;
+        height: 4px;
+        background: black;
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+    }
+    .second-mark {
+        width: 50%;
+        height: 2px;
+        background: #7e7e7e;
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+    }
+}
