@@ -49,6 +49,7 @@ section.active {
     display: flex;
 }
 
+
 img {
     width: 100%;
 }
@@ -102,4 +103,33 @@ button {
 
 .visual-time {
     @include visual-time;
+}
+
+.changeBtn {
+    border: none;
+    background: black;
+
+    .loading-screen{
+        background: black;
+    }
+
+    .text {
+        width: 50%;
+    }
+
+    .logo {
+        animation-name: bounce-1;
+        animation-duration: 3000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear; 
+        height: 5rem;
+        margin-bottom: 2rem;
+        
+    }
+
+    @keyframes bounce-1 {
+        0%   { transform: translateY(0); }
+        50%  { transform: translateY(-40px); }
+        100% { transform: translateY(0); }
+    }
 }

@@ -10,9 +10,13 @@
 <body>
     <div id="app">
         <main>
-            <section id="loading" class="loading-screen">
-                <img class="logo" src="../../poster.png" alt="poster">
-            </section>
+
+            <button class="changeBtn">
+                <section id="loading" class="loading-screen active">
+                    <img class="logo" src="../../logo.png" alt="logo">
+                    <img class="text" src="../../text.png" alt="text">
+                </section>
+          </button>
     
             <section id="setuptimer" class="timer-setup-screen active">
                 <div id="time-step" class="time-step-wrapper">
@@ -47,6 +51,7 @@
                     </div>
                 </div>
                 <button id="StartTimer" class="start-timer-button">start timer</button>
+
             </section>
     
             <section id="DigitalTimer" class="digital-timer-screen">
