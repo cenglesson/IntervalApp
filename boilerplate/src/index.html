@@ -9,40 +9,68 @@
 </head>
 <body>
     <div id="app">
-        <div id="time">00:00:00</div>
         <main>
-            <section id="loading" class="loading-screen active">
-                <img class="logo" src="../../poster.png" alt="poster">
-            </section>
+
+            <button class="changeBtn active">
+                <section id="loading" class="loading-screen active">
+                    <img class="logo" src="../../logo.png" alt="logo">
+                    <img class="text" src="../../text.png" alt="text">
+                </section>
+          </button>
     
             <section id="setuptimer" class="timer-setup-screen">
-                <section id="time-step" class="timeStepWrapper">
-                    <button id="stepLeft" class="stepLeft"></button>
-                    <aside class="minuteWrapper">
-                        <h1 id="displayTime" class="display-time">10</h1>
-                        <p>minutes</p>
-                    </aside>
-                    <button id="stepRight" class="stepRight"></button>
-                </section>
+                <div id="time-step" class="time-step-wrapper">
+                    <button id="stepLeft" class="step-left"></button>
+                    <h1 id="displayTime" class="display-time">10</h1>
+                    <button id="stepRight" class="step-right"></button>
+                </div>
+                <span>minutes</span>
+                <div id="TimerType" class="timer-type-wrapper">
+                    <div class="checkbox">
+                        <div id="IntervalCheck" class="box"></div>
+                        <p>intervals</p>
+                    </div>
+                    <div class="checkbox">
+                        <div id="IntervalBreakCheck" class="box"></div>
+                        <p>5 min break / interval</p>
+                    </div>
+                </div>
+                <p>Timer type</p>
+                <div id="timerStyles" class="timers-wrapper">
+                    <div class="checkbox">
+                        <div id="_analog" class="box"></div>
+                        <p>Analog timer</p>
+                    </div>
+                    <div class="checkbox">
+                        <div id="_digital" class="box"></div>
+                        <p>Digital timer</p>
+                    </div>
+                    <div class="checkbox">
+                        <div id="_visual" class="box"></div>
+                        <p>Visual timer</p>
+                    </div>
+                </div>
+                <button id="StartTimer" class="start-timer-button">start timer</button>
+
             </section>
     
             <section id="DigitalTimer" class="digital-timer-screen">
-                <section class="time-wrapper">
+                <div class="time-wrapper">
                     <h1 id="digitalTimerTime">7:32</h1>
-                </section>
+                </div>
                 <button id="abort" class="abort-button">Abort timer</button>
             </section>
     
             <section id="AnalogTimer" class="analog-timer-screen">
-                <section class="time-wrapper">
+                <div class="time-wrapper">
                     <div id="secondMarker" class="second-mark"></div>
                     <div id="minuteMarker" class="minute-mark"></div>
-                </section>
+                </div>
                 <button id="abort" class="abort-button">Abort timer</button>
             </section>
     
             <section id="VisualTimer" class="visual-timer-screen">
-                <div id="cisualTime" class="visual-time"></div>
+                <div id="visualTime" class="visual-time animate__animated animate__jello slow"></div>
                 <button id="abort" class="abort-button">Abort timer</button>
             </section>
     

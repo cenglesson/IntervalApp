@@ -1,5 +1,9 @@
+@import "mixins.scss";
+@import './variables.scss';
+
 body, html {
     font-family: Helvetica;
+    text-align: center;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,21 +11,130 @@ body, html {
     align-items: center;
 }
 
+h1 {
+    font-size: 4.6rem;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+p, span {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    margin: 0 1rem;
+}
+
+.app {
+    width: 375px;
+    height: 700px;
+}
+
+main {
+    width: 375px;
+    height: 700px;
+}
+
 section {
     width: 375px;
     height: 700px;
     background-color: #fff;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     display: none;
     box-shadow: 0 0 10px 3px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 section.active {
     display: flex;
 }
+.changeBtn.active {
+    display: block;
+}
+
 
 img {
     width: 100%;
+}
+
+button {
+    @include button-default;
+}
+
+.timer-setup-screen {
+    width: 100%;
+    .time-step-wrapper {
+        width: 100%;
+        @include flex-center;
+        justify-content: space-around;
+        button {
+            width: 30px;
+            height: 60px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            background-image: url(../images/arrow.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            cursor: pointer;
+        }
+        .step-right {
+            transform: rotateY(180deg);
+        }
+    }
+    .timer-type-wrapper {
+        width: 100%;
+        flex-direction: column;
+        @include flex-center;
+        margin: 3rem 0 1rem 0;
+    }
+    .checkbox {
+        @include flex-start;
+        width: 300px;
+        margin: 0.5rem 0;
+        .box {
+            @include checkBox;
+        }
+        .box.checked {
+            background-color: #000;
+        }
+    }
+    .timers-wrapper {
+        margin: 1rem 0;
+    }
+}
+
+.visual-time {
+    @include visual-time;
+}
+
+.changeBtn {
+    border: none;
+    background: transparent;
+    display: none;
+
+    .loading-screen{
+        background: black;
+    }
+
+    .text {
+        width: 50%;
+    }
+
+    .logo {
+        animation-name: bounce-1;
+        animation-duration: 3000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear; 
+        height: 5rem;
+        max-width: 5.5rem;
+        margin-bottom: 2rem;
+        
+    }
+
+    @keyframes bounce-1 {
+        0%   { transform: translateY(0); }
+        50%  { transform: translateY(-40px); }
+        100% { transform: translateY(0); }
+    }
 }
