@@ -11,12 +11,12 @@ timer.addEventListener("secondsUpdated", () => {
     document.getElementById('time')!.innerHTML = timer.getTimeValues().toString();
 });
 
+
+// Loadingpage
 const loadingpageElem: HTMLElement = document.querySelector('#loading');
 const startpageElem: HTMLElement = document.querySelector('#setuptimer');
 const changeBtn: HTMLElement = document.querySelector('.changeBtn');
 const pageElem: HTMLElement = document.querySelector('#time-step');
-
-
 
 changeBtn.addEventListener('click', () => {
     loadingpageElem.classList.remove('active');
