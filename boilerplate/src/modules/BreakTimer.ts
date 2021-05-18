@@ -1,5 +1,4 @@
 import { Timer } from "easytimer.js";
-const timerEl = document.getElementById('VisualTimer') as HTMLElement;
 
 export const BreakTimer = () => {
     const timer = new Timer();

@@ -1,4 +1,5 @@
 @import "mixins.scss";
+@import './variables.scss';
 
 body, html {
     font-family: Helvetica;
@@ -19,7 +20,7 @@ h1 {
 p, span {
     font-size: 1rem;
     letter-spacing: 0.2rem;
-    margin: 0;
+    margin: 0 1rem;
 }
 
 .app {
@@ -37,8 +38,7 @@ section {
     height: 700px;
     background-color: #fff;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     display: none;
     box-shadow: 0 0 10px 3px rgba(0,0,0,0.2);
     position: relative;
@@ -51,6 +51,10 @@ section.active {
 
 img {
     width: 100%;
+}
+
+button {
+    @include button-default;
 }
 
 .timer-setup-screen {
@@ -85,34 +89,11 @@ img {
         width: 300px;
         margin: 0.5rem 0;
         .box {
-            width: 20px;
-            height: 20px;
-            border-radius: 5px;
-            border: 2px solid #000;
-            cursor: pointer;
+            @include checkBox;
         }
         .box.checked {
             background-color: #000;
         }
-        p {
-            margin-left: 2rem;
-            text-align: left;
-        }
-    }
-    .start-timer-button {
-        width: 70%;
-        font-size: 1.8rem;
-        text-transform: uppercase;
-        padding: 0.5rem;
-        background-color: transparent;
-        outline: none;
-        border: 3px solid #000;
-        border-radius: 0.3rem;
-        cursor: pointer;
-    }
-    p {
-        align-self: flex-start;
-        margin-left: 2.5rem;
     }
     .timers-wrapper {
         margin: 1rem 0;
@@ -120,12 +101,5 @@ img {
 }
 
 .visual-time {
-    width: 100%;
-    height: 0%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: black;
-    transition: height 0.2s ease;
-    animation-duration: 2000s ease;
+    @include visual-time;
 }
