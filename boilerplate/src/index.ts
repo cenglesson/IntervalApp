@@ -12,7 +12,7 @@ timer.addEventListener("secondsUpdated", () => {
 });
 
 
-// Loadingpage
+// Loadingpage.
 const loadingpageElem: HTMLElement = document.querySelector('#loading');
 const startpageElem: HTMLElement = document.querySelector('#setuptimer');
 const changeBtn: HTMLElement = document.querySelector('.changeBtn');
