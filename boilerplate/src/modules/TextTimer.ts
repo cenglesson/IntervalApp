@@ -13,7 +13,7 @@ export const TextTimer = (time: number, type: string) => {
         const minuteText = getTimeText(obj.minutes);
         const secondsText = getTimeText(obj.seconds);
 
-        myDiv.innerText = `${minuteText}minutes and ${secondsText}seconds left`
+        myDiv.innerText = `${minuteText}minutes and ${secondsText}seconds left`;
     })
 
     timer.on('targetAchieved', () => {
