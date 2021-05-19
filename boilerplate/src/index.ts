@@ -162,4 +162,4 @@ abortButtons.forEach(button => {
 document.getElementById('SetUpNewTimer')!.addEventListener('click', () => {
     TimesUpScreen.classList.remove('active');
     setupPage.classList.add('active');
-})
+});

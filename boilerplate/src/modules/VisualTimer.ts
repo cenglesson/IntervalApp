@@ -4,6 +4,7 @@ const timerEl = document.getElementById('VisualTimer') as HTMLElement;
 const TimesUp = document.getElementById('TimesUp') as HTMLElement;
 const visuals = document.getElementById('visualTime') as HTMLStyleElement;
 const breakPage = document.getElementById('Pause') as HTMLElement;
+const liquid = document.getElementById('liquidDiv') as HTMLStyleElement;
 
 const timer = new Timer();
 
@@ -20,6 +21,7 @@ export const VisualTimer = (time: number, type: string, abort: boolean) => {
         currentTime++;
         let progress = currentTime / totalTime * 100;
         visuals.style.height = progress.toString() + '%';
+        liquid.style.top = (progress).toString() + '%';
 
         if (type === 'interval' && currentTime === totalTime) {
             timerEl.classList.remove('active');
@@ -28,7 +30,7 @@ export const VisualTimer = (time: number, type: string, abort: boolean) => {
             timer.pause();
             timerEl.classList.remove('active');
             breakPage.classList.add('active');
-            BreakTimer();
+            BreakTimer('visual-timer-screen');
         }
     });
 }

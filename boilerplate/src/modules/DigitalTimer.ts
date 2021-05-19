@@ -25,13 +25,11 @@ export const DigitalTimer = (time: number, type: string, abort: boolean) => {
     timer.addEventListener('secondsUpdated', (): void => {
         currentTime++;
 
-        console.log(currentTime)
         
         const obj: any = timer.getTimeValues();
         
-        digitalShow.innerText = `${obj.minutes.toString()}:${obj.seconds.toString()}`
+        digitalShow.innerText = `${obj.minutes.toString()}:${obj.seconds.toString()}`;
    
-        console.log(type)
    
         if (type === 'interval' && currentTime === totalTime) {
             digitalEl.classList.remove('active');
@@ -40,21 +38,23 @@ export const DigitalTimer = (time: number, type: string, abort: boolean) => {
             timer.pause();
             digitalEl.classList.remove('active');
             pausePage.classList.add('active');
-            BreakTimer();
+            BreakTimer('digital-timer-screen');
         }
 
 
     })
-    timer.on('targetAchieved', () => {
-        console.log('WOHOOO')
+    timer.on('targetAchieved', (): void => {
+        console.log('Digital timer - DONE')
     })
-    pauseBtn.addEventListener('click', () => (
+
+    
+    pauseBtn.addEventListener('click', (): void => (
         resume()
     ))
 }
 
 
 
-export const resume = () => {
+export const resume = (): void => {
     timer.start();
 }
