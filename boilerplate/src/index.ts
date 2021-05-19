@@ -97,7 +97,7 @@ const startTimer = () => {
             break;
         case 'digital':
             DigitalTimerEl.classList.add('active');
-            DigitalTimer(startValue, type);
+            DigitalTimer(startValue, type, false);
             break;
         case 'visual':
             visualTimerEl.classList.add('active');
@@ -138,7 +138,7 @@ const abortTimer = (e: any) => {
             break;
         case 'digital':
             DigitalTimerEl.classList.remove('active');
-            DigitalTimer(startValue, type);
+            DigitalTimer(startValue, type, true);
             break;
         case 'visual':
             visualTimerEl.classList.remove('active');
