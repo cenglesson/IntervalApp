@@ -38,7 +38,7 @@ export const AnalogTimer = (time: number, type: string) => {
         if (type === 'interval' && currentTime === totalTime) {
             timerEl.classList.remove('active');
             TimesUp.classList.add('active');
-        } else if (type === 'intervalBreak' && currentTime === totalTime) {
+        } else if (type === 'intervalBreak' && currentTime === totalTime / 2) {
             timer.pause();
             timerEl.classList.remove('active');
             breakPage.classList.add('active');
