@@ -119,6 +119,17 @@ button:not(.changeBtn, .step-right, .step-left) {
     @include visual-time;
 }
 
+#liquidDiv {
+    transform: rotate(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -30px;
+    width: 100%;
+    will-change: margin-top;
+    transition: top 0.3s ease;
+}
+
 .changeBtn {
     border: none;
     background: transparent;
