@@ -12,9 +12,9 @@ for (var i = 1; i < 60; i++) {
     dialLines[i].style.transform = "rotate(" + 6 * i + "deg)";
   }
 
+const timer = new Timer();
 
 export const AnalogTimer = (time: number, type: string) => {
-    const timer = new Timer();
     timer.start({countdown: true, startValues: {minutes: time}});
     let currentTime = 0;
     let totalTime = time * 60;
@@ -39,11 +39,16 @@ export const AnalogTimer = (time: number, type: string) => {
             timerEl.classList.remove('active');
             TimesUp.classList.add('active');
         } else if (type === 'intervalBreak' && currentTime === totalTime) {
+            timer.pause();
             timerEl.classList.remove('active');
             breakPage.classList.add('active');
-            BreakTimer();
+            BreakTimer('analog-timer-screen');
         }
 
     });
+}
+
+export const resume = (): void => {
+    timer.start();
 }
 
