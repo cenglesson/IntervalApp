@@ -121,6 +121,7 @@ button {
         top: 50%;
         transform-origin: 100%;
         transform: rotate(90deg);
+        border-radius: 45%;
     }
     .second-mark {
         width: 50%;
@@ -130,5 +131,31 @@ button {
         top: 50%;
         transform-origin: 100%;
         transform: rotate(90deg);
+        border-radius: 45%;
     }
+    .diallines {
+        position: absolute;
+        z-index: 2;
+        width: 2px;
+        height: 15px;
+        background: #222222;
+        left: 50%;
+        top: -16%;
+        margin-left: -1px;
+        transform-origin: 50% 130px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 3px solid black;
+        background: #7e7e7e;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        position: absolute;
+        z-index: 10;
+      }
 }

@@ -3,8 +3,14 @@ import { BreakTimer } from './BreakTimer';
 const timerEl = document.getElementById('AnalogTimer') as HTMLElement;
 const TimesUp = document.getElementById('TimesUp') as HTMLElement;
 const breakPage = document.getElementById('Pause') as HTMLElement;
-const minuteHand = document.getElementById('minuteMarker') as HTMLElement;
-const secondHand = document.getElementById('secondMarker') as HTMLElement;
+
+const dialLines = document.getElementsByClassName('diallines') as HTMLCollectionOf<HTMLElement>;
+const face = document.getElementsByClassName('analog-face')[0] as HTMLElement;
+
+for (var i = 1; i < 60; i++) {
+    face.innerHTML += "<div class='diallines'></div>";
+    dialLines[i].style.transform = "rotate(" + 6 * i + "deg)";
+  }
 
 
 export const AnalogTimer = (time: number, type: string) => {
@@ -12,12 +18,13 @@ export const AnalogTimer = (time: number, type: string) => {
     timer.start({countdown: true, startValues: {minutes: time}});
     let currentTime = 0;
     let totalTime = time * 60;
-    
+    const minuteHand = document.getElementById('minuteMarker') as HTMLElement;
+    const secondHand = document.getElementById('secondMarker') as HTMLElement;
 
 
     timer.addEventListener('secondsUpdated', () => {
         currentTime++;
-        
+
         const secondsDegree = (((currentTime / 60) * 360) + 90);
         secondHand.style.transform = `rotate(${secondsDegree}deg)`
 
@@ -36,6 +43,7 @@ export const AnalogTimer = (time: number, type: string) => {
             breakPage.classList.add('active');
             BreakTimer();
         }
+
     });
 }
 
