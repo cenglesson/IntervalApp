@@ -28,7 +28,7 @@ let startValue: number = 10;
 let type: string = 'interval';
 let timerStyle: string = 'analog';
 
-const setMinutes = (e: any) => {
+const setMinutes = (e: any): void => {
     if (e.target.id === "stepRight") {
         timeNumber.innerHTML = (startValue += 1).toString();
     } else {
@@ -39,7 +39,7 @@ const setMinutes = (e: any) => {
 stepLeftButton.addEventListener('click', setMinutes);
 stepRightButton.addEventListener('click', setMinutes);
 
-const setType = (e: any) => {
+const setType = (e: any): void => {
     if (e.target.id === 'IntervalCheck') {
         intervalBreakCheck.classList.remove('checked');
         intervalCheck.classList.add('checked');
@@ -55,7 +55,7 @@ timerType.querySelectorAll('.box').forEach(el => {
     el.addEventListener('click', setType);
 });
 
-const setTimerStyles = (e: any) => {
+const setTimerStyles = (e: any): void => {
     if (e.target.id === '_analog') {
         _digital.classList.remove('checked');
         _visual.classList.remove('checked');
@@ -88,12 +88,12 @@ timerStyles.querySelectorAll('.box').forEach(el => {
 });
 
 //Start timer
-const startTimer = () => {
+const startTimer = (): void => {
     setupPage.classList.remove('active');
     switch (timerStyle) {
         case 'analog':
             AnalogTimerEl.classList.add('active');
-            AnalogTimer(startValue, type);
+            AnalogTimer(startValue, type, false);
             break;
         case 'digital':
             DigitalTimerEl.classList.add('active');
@@ -105,7 +105,7 @@ const startTimer = () => {
             break;
         case 'text':
             TextTimerEl.classList.add('active');
-            TextTimer(startValue, type);
+            TextTimer(startValue, type, false);
             break;
         default:
             break;
@@ -130,11 +130,11 @@ changeBtn.addEventListener('click', () => {
 });
 
 //Abort timer
-const abortTimer = (e: any) => {
+const abortTimer = (e: any): void => {
     switch (timerStyle) {
         case 'analog':
             AnalogTimerEl.classList.remove('active');
-            AnalogTimer(startValue, type);
+            AnalogTimer(startValue, type, true);
             break;
         case 'digital':
             DigitalTimerEl.classList.remove('active');
@@ -146,7 +146,7 @@ const abortTimer = (e: any) => {
             break;
         case 'text':
             TextTimerEl.classList.remove('active');
-            TextTimer(startValue, type);
+            TextTimer(startValue, type, true);
             break;
         default:
             break;
@@ -159,7 +159,7 @@ abortButtons.forEach(button => {
 });
 
 //Times up 
-document.getElementById('SetUpNewTimer')!.addEventListener('click', () => {
+document.getElementById('SetUpNewTimer')!.addEventListener('click', (): void => {
     TimesUpScreen.classList.remove('active');
     setupPage.classList.add('active');
 });

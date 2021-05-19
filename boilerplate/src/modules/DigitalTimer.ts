@@ -9,7 +9,7 @@ const pauseBtn = document.getElementById('StopPauseButton') as HTMLElement;
 
 const timer = new Timer();
 
-export const DigitalTimer = (time: number, type: string, abort: boolean) => {
+export const DigitalTimer = (time: number, type: string, abort: boolean): void => {
 
     let currentTime = 0;
     let totalTime = time * 60;
@@ -38,7 +38,7 @@ export const DigitalTimer = (time: number, type: string, abort: boolean) => {
             timer.pause();
             digitalEl.classList.remove('active');
             pausePage.classList.add('active');
-            BreakTimer('digital-timer-screen');
+            BreakTimer('DigitalTimer');
         }
 
 
@@ -49,12 +49,12 @@ export const DigitalTimer = (time: number, type: string, abort: boolean) => {
 
     
     pauseBtn.addEventListener('click', (): void => (
-        resume()
+        resumeDigital()
     ))
 }
 
 
 
-export const resume = (): void => {
+export const resumeDigital = (): void => {
     timer.start();
 }

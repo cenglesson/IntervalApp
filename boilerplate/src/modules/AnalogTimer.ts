@@ -14,15 +14,21 @@ for (var i = 1; i < 60; i++) {
 
 const timer = new Timer();
 
-export const AnalogTimer = (time: number, type: string) => {
-    timer.start({countdown: true, startValues: {minutes: time}});
+export const AnalogTimer = (time: number, type: string, abort: boolean): void => {
+
+    if (abort === true) {
+        timer.stop();
+    } else {
+        timer.start({countdown: true, startValues: {minutes: time}});
+    }
+
     let currentTime = 0;
     let totalTime = time * 60;
     const minuteHand = document.getElementById('minuteMarker') as HTMLElement;
     const secondHand = document.getElementById('secondMarker') as HTMLElement;
 
 
-    timer.addEventListener('secondsUpdated', () => {
+    timer.addEventListener('secondsUpdated', (): void => {
         currentTime++;
 
         const secondsDegree = (((currentTime / 60) * 360) + 90);
@@ -42,13 +48,13 @@ export const AnalogTimer = (time: number, type: string) => {
             timer.pause();
             timerEl.classList.remove('active');
             breakPage.classList.add('active');
-            BreakTimer('analog-timer-screen');
+            BreakTimer('AnalogTimer');
         }
 
     });
 }
 
-export const resume = (): void => {
+export const resumeAnalog = (): void => {
     timer.start();
 }
 

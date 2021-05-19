@@ -8,7 +8,7 @@ const liquid = document.getElementById('liquidDiv') as HTMLStyleElement;
 
 const timer = new Timer();
 
-export const VisualTimer = (time: number, type: string, abort: boolean) => {
+export const VisualTimer = (time: number, type: string, abort: boolean): void => {
     let currentTime = 0;
     let totalTime = time * 60;
     if (abort === true) {
@@ -17,7 +17,7 @@ export const VisualTimer = (time: number, type: string, abort: boolean) => {
     } else {
         timer.start({countdown: true, startValues: {minutes: time}});
     }
-    timer.addEventListener('secondsUpdated', () => {
+    timer.addEventListener('secondsUpdated', (): void => {
         currentTime++;
         let progress = currentTime / totalTime * 100;
         visuals.style.height = progress.toString() + '%';
@@ -30,11 +30,11 @@ export const VisualTimer = (time: number, type: string, abort: boolean) => {
             timer.pause();
             timerEl.classList.remove('active');
             breakPage.classList.add('active');
-            BreakTimer('visual-timer-screen');
+            BreakTimer('VisualTimer');
         }
     });
 }
 
-export const resume = () => {
+export const resumeVisual = (): void => {
     timer.start();
 }
