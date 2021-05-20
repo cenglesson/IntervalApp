@@ -1,8 +1,10 @@
 @import "mixins.scss";
 @import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
 
 body, html {
-    font-family: Helvetica;
+    font-family: 'PT Sans', sans-serif;
     text-align: center;
     width: 100%;
     height: 100vh;
@@ -15,6 +17,14 @@ h1 {
     font-size: 4.6rem;
     letter-spacing: 0.2rem;
     margin: 0;
+}
+
+.interval-h2 {
+    letter-spacing: 0.2rem;
+    margin: 0;
+    font-weight: lighter;
+    position: absolute;
+    top: 50px;
 }
 
 p, span {
@@ -103,8 +113,8 @@ button:not(.changeBtn, .step-right, .step-left) {
             content: 'x';
             color: $light;
             position: absolute;
-            top: -0.3rem;
-            left: 0.22rem;
+            top: -0.48rem;
+            left: 0.25rem;
             font-size: 1.5rem;
         }
     }
@@ -115,6 +125,17 @@ button:not(.changeBtn, .step-right, .step-left) {
 
 .visual-time {
     @include visual-time;
+}
+
+#liquidDiv {
+    transform: rotate(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -30px;
+    width: 100%;
+    will-change: top;
+    transition: top 0.3s ease;
 }
 
 .changeBtn {
@@ -158,7 +179,6 @@ button:not(.changeBtn, .step-right, .step-left) {
     color: $light !important;
     border-color: $light !important;
 }
-
 
 .time-wrapper {
     @include time-wrapper;
@@ -214,3 +234,21 @@ button:not(.changeBtn, .step-right, .step-left) {
         z-index: 10;
       }
 }
+
+#CircleTimer {
+    .time-wrapper {
+        border-radius: 50%;
+    }
+   
+    .circle {
+        border: 1px solid black;
+        border-radius: 50%;
+        padding: 10px;
+        background-color: white;
+        
+    }
+    .fill {
+        background-color: #999999;
+    }
+}
+

@@ -12,17 +12,23 @@ for (var i = 1; i < 60; i++) {
     dialLines[i].style.transform = "rotate(" + 6 * i + "deg)";
   }
 
+const timer = new Timer();
 
-export const AnalogTimer = (time: number, type: string) => {
-    const timer = new Timer();
-    timer.start({countdown: true, startValues: {minutes: time}});
+export const AnalogTimer = (time: number, type: string, abort: boolean): void => {
+
+    if (abort === true) {
+        timer.stop();
+    } else {
+        timer.start({countdown: true, startValues: {minutes: time}});
+    }
+
     let currentTime = 0;
     let totalTime = time * 60;
     const minuteHand = document.getElementById('minuteMarker') as HTMLElement;
     const secondHand = document.getElementById('secondMarker') as HTMLElement;
 
 
-    timer.addEventListener('secondsUpdated', () => {
+    timer.addEventListener('secondsUpdated', (): void => {
         currentTime++;
 
         const secondsDegree = (((currentTime / 60) * 360) + 90);
@@ -38,12 +44,17 @@ export const AnalogTimer = (time: number, type: string) => {
         if (type === 'interval' && currentTime === totalTime) {
             timerEl.classList.remove('active');
             TimesUp.classList.add('active');
-        } else if (type === 'intervalBreak' && currentTime === totalTime) {
+        } else if (type === 'intervalBreak' && currentTime === totalTime / 2) {
+            timer.pause();
             timerEl.classList.remove('active');
             breakPage.classList.add('active');
-            BreakTimer();
+            BreakTimer('AnalogTimer');
         }
 
     });
+}
+
+export const resumeAnalog = (): void => {
+    timer.start();
 }
 

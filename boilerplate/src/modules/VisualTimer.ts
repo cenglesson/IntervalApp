@@ -4,10 +4,11 @@ const timerEl = document.getElementById('VisualTimer') as HTMLElement;
 const TimesUp = document.getElementById('TimesUp') as HTMLElement;
 const visuals = document.getElementById('visualTime') as HTMLStyleElement;
 const breakPage = document.getElementById('Pause') as HTMLElement;
+const liquid = document.getElementById('liquidDiv') as HTMLStyleElement;
 
 const timer = new Timer();
 
-export const VisualTimer = (time: number, type: string, abort: boolean) => {
+export const VisualTimer = (time: number, type: string, abort: boolean): void => {
     let currentTime = 0;
     let totalTime = time * 60;
     if (abort === true) {
@@ -16,10 +17,12 @@ export const VisualTimer = (time: number, type: string, abort: boolean) => {
     } else {
         timer.start({countdown: true, startValues: {minutes: time}});
     }
-    timer.addEventListener('secondsUpdated', () => {
+    liquid.style.marginTop = '-30px';
+    timer.addEventListener('secondsUpdated', (): void => {
         currentTime++;
         let progress = currentTime / totalTime * 100;
         visuals.style.height = progress.toString() + '%';
+        liquid.style.top = (progress).toString() + '%';
 
         if (type === 'interval' && currentTime === totalTime) {
             timerEl.classList.remove('active');
@@ -28,11 +31,11 @@ export const VisualTimer = (time: number, type: string, abort: boolean) => {
             timer.pause();
             timerEl.classList.remove('active');
             breakPage.classList.add('active');
-            BreakTimer();
+            BreakTimer('VisualTimer');
         }
     });
 }
 
-export const resume = () => {
+export const resumeVisual = (): void => {
     timer.start();
 }
