@@ -24,8 +24,7 @@ export const BreakTimer = (type: string): void => {
     timer.addEventListener('targetAchieved', (): void => {
         pauseTimer.classList.remove('active');
         timerScreen[0].classList.add('active');
-        timer.pause();
-        timer.reset();
+        timer.stop();
         switch (type) {
             case 'VisualTimer':
                 resumeVisual();
@@ -46,8 +45,7 @@ export const BreakTimer = (type: string): void => {
     stopButton.addEventListener('click', (): void => {
         pauseTimer.classList.remove('active');
         timerScreen[0].classList.add('active');
-        timer.pause();
-        timer.reset();
+        timer.stop();
         switch (type) {
             case 'VisualTimer':
                 resumeVisual();

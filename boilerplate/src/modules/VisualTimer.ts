@@ -17,6 +17,7 @@ export const VisualTimer = (time: number, type: string, abort: boolean): void =>
     } else {
         timer.start({countdown: true, startValues: {minutes: time}});
     }
+    liquid.style.marginTop = '-30px';
     timer.addEventListener('secondsUpdated', (): void => {
         currentTime++;
         let progress = currentTime / totalTime * 100;
