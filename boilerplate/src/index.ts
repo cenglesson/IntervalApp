@@ -2,6 +2,7 @@ import { AnalogTimer } from "./modules/AnalogTimer";
 import { VisualTimer } from "./modules/VisualTimer";
 import { DigitalTimer } from "./modules/DigitalTimer";
 import { TextTimer } from "./modules/TextTimer";
+import { CircleTimer } from "./modules/CirclesTimer";
 
 //Timer setup
 const setupPage = document.getElementById('setuptimer') as HTMLElement;
@@ -10,6 +11,7 @@ const AnalogTimerEl = document.getElementById('AnalogTimer') as HTMLElement;
 const DigitalTimerEl = document.getElementById('DigitalTimer') as HTMLElement;
 const TextTimerEl = document.getElementById('TextTimer') as HTMLElement;
 const TimesUpScreen = document.getElementById('TimesUp') as HTMLElement;
+const CircleTimerEl = document.getElementById('CircleTimer') as HTMLElement;
 const stepLeftButton = document.getElementById('stepLeft') as HTMLElement;
 const stepRightButton = document.getElementById('stepRight') as HTMLElement;
 const timeNumber = document.getElementById('displayTime') as HTMLElement;
@@ -21,6 +23,7 @@ const _analog = document.getElementById('_analog') as HTMLElement;
 const _digital = document.getElementById('_digital') as HTMLElement;
 const _visual = document.getElementById('_visual') as HTMLElement;
 const _text = document.getElementById('_text') as HTMLElement;
+const _circle = document.getElementById('_circle') as HTMLElement;
 const startTimerButton = document.getElementById('StartTimer') as HTMLButtonElement;
 const abortButtons = document.querySelectorAll('.abort-button');
 
@@ -60,24 +63,35 @@ const setTimerStyles = (e: any): void => {
         _digital.classList.remove('checked');
         _visual.classList.remove('checked');
         _text.classList.remove('checked');
+        _circle.classList.remove('checked');
         _analog.classList.add('checked');
         timerStyle = 'analog';
     } else if (e.target.id === '_digital') {
         _analog.classList.remove('checked');
         _visual.classList.remove('checked');
         _text.classList.remove('checked');
+        _circle.classList.remove('checked');
         _digital.classList.add('checked');
         timerStyle = 'digital';
     } else if (e.target.id === '_text') {
         _analog.classList.remove('checked');
         _visual.classList.remove('checked');
         _digital.classList.remove('checked');
+        _circle.classList.remove('checked');
         _text.classList.add('checked');
         timerStyle = 'text';
+    } else if (e.target.id === '_circle') {
+        _analog.classList.remove('checked');
+        _visual.classList.remove('checked');
+        _digital.classList.remove('checked');
+        _text.classList.remove('checked');
+        _circle.classList.add('checked');
+        timerStyle = 'circle';
     } else {
         _analog.classList.remove('checked');
         _digital.classList.remove('checked');
         _text.classList.remove('checked');
+        _circle.classList.remove('checked');
         _visual.classList.add('checked');
         timerStyle = 'visual';
     }
@@ -106,6 +120,10 @@ const startTimer = (): void => {
         case 'text':
             TextTimerEl.classList.add('active');
             TextTimer(startValue, type, false);
+            break;
+        case 'circle':
+            CircleTimerEl.classList.add('active');
+            CircleTimer(startValue, type, false);
             break;
         default:
             break;
@@ -147,6 +165,10 @@ const abortTimer = (e: any): void => {
         case 'text':
             TextTimerEl.classList.remove('active');
             TextTimer(startValue, type, true);
+            break;
+        case 'circle':
+            CircleTimerEl.classList.remove('active');
+            CircleTimer(startValue, type, true);
             break;
         default:
             break;
